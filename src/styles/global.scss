@@ -1,4 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,300;1,400;1,700&family=Tomorrow:wght@400;500;600;700&display=swap');
 
-$font-family-sans-serif:    Montserrat; //, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$headings-font-family: Tomorrow;
+$font-family-sans-serif:    Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$headings-font-family: Tomorrow, $font-family-sans-serif;
+
+
+
+
+$ruby:      #9B2226;
+$rust:      #B53B03;
+$flame:     #E14A14;
+$gamboge:   #EE9900;
+$onyx:      #3F3F3F;
+$sapphire:  #035E7B;
+$prussian:  #003249;
+$cambridge: #a3c1ad;
+$celadon:   #338679;
+$tiffany:   #17C3B2;
+$opal:      #8DB7B0;
+$platinum:  #E6E8E6;
+$aubergine: #674A57;
+$lilac:     #885A89;
+$fuchsia:   #c247b4;
+
+$blue:      $sapphire;
+$red:       $ruby;
+$orange:    $flame;
+$yellow:    $gamboge;
+$green:     $celadon;
+$teal:      $cambridge;
+$cyan:      $tiffany;
+$indigo:    $prussian;
+$purple:    $lilac;
+$pink:      $fuchsia;
+
+$gray-200:  $platinum;
+$gray-800:  $opal;
+
+$primary:       $rust;
+$secondary:     $green;
+$light:         $gray-200;
+$dark:          $gray-800;
