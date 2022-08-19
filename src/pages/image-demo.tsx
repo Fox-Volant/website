@@ -19,7 +19,7 @@ const DemoPage = () => {
         <main>
             <Container>
                 <Row>
-                    <Col md={{span:8, offset:4}}>
+                    <Col>
                     {/* <StaticImage src="../images/1.png" alt="Fox Volant - UAV Solutions" /> */}
                         <Hero/>
                     </Col>

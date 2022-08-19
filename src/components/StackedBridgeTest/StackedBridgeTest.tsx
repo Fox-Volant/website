@@ -15,12 +15,12 @@ export function Hero() {
             }}
             layout="fullWidth"
             // You can optionally force an aspect ratio for the generated image
-            aspectRatio={3 / 1}
+            //aspectRatio={3 / 1}
             // This is a presentational image, so the alt should be an empty string
             alt=""
             // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
             src={
-              "..images/1.png"
+              "../../images/1.png"
             }
             formats={["auto", "webp", "avif"]}
           />
@@ -41,12 +41,12 @@ export function Hero() {
               }}
               layout="fullWidth"
               // You can optionally force an aspect ratio for the generated image
-              aspectRatio={3 / 1}
+              //aspectRatio={3 / 1}
               // This is a presentational image, so the alt should be an empty string
               alt=""
               // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
               src={
-              "..images/2.png"
+              "../../images/2.png"
               }
               formats={["auto", "webp", "avif"]}
           />
