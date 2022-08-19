@@ -19,12 +19,11 @@ const IndexPage = () => {
         <main>
             <Container>
                 <Row>
-                    <Col md={{span:6, offset:3}}>
-                        <Welcome>
-                            <h1 className="h2 flex-fill">Welcome to Fox Volant</h1>
-                            <p className="flex-grow-1">We're sorry, this site is currently under construction. We'll be taking off soon, but in the mean time, please check us out on social media:</p>
-                            <a className="flex-grow-1 align-self-stretch align-content-center" href="https://www.instagram.com/foxvolant_uav/"><StaticImage src="../images/Instagram_Glyph_Gradient.png" placeholder="tracedSVG" height={80} width={80} objectPosition="50% 100%" alt="Follow Fox Volant on Instagram"/></a>
-                        </Welcome>
+                    <Col>
+                        <StaticImage src="../images/DJI_0034.jpg" alt=""/>
+                    </Col>
+                    <Col md={{span:8}}>
+                        
                     </Col>
                 </Row>
             </Container>
