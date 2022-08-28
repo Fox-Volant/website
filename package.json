@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@formspree/react": "^2.3.3",
     "bootstrap": "^5.2.0",
     "gatsby": "^4.20.0",
     "gatsby-background-image": "^1.6.0",
