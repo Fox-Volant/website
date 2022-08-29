@@ -1,44 +1,16 @@
 import * as React from "react";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { StaticImage } from "gatsby-plugin-image";
 import { TextFrame } from "../components/TextFrame/TextFrame";
 import ContactForm from "../components/ContactForm/ContactForm";
+import Layout from "../components/layouts/Layout/Layout";
 
 const IndexPage = () => {
     return (
-        
-        <div id="frontWrapper" className="d-flex flex-column">
-            <header>
-                <nav className="navbar bg-dark mb-5">
-                    <div className="container-fluid">
-                        <span className="navbar-brand">
-                            <StaticImage
-                                src="../images/Asset 2xxxhdpi.png"
-                                alt="Fox Volant - UAV Solutions"
-                                loading="eager"
-                                placeholder="tracedSVG"
-                                height={100}
-                            />
-                        </span>
-                    </div>
-                </nav>
-                {/* <Container>
-                    <Row>
-                        <Col className="mt-5 mb-5">
-                            <StaticImage
-                                src="../images/Asset 2xxxhdpi.png"
-                                alt="Fox Volant - UAV Solutions"
-                                loading="eager"
-                                placeholder="tracedSVG"
-                            />
-                        </Col>
-                    </Row>
-                </Container> */}
-            </header>
-            <main>
-                <Container>
+        <Layout
+            bodyContent={
+                <>
                     <Row className="mb-2 mb-md-3 mb-xl-5">
                         <Col>
                             <TextFrame>
@@ -223,26 +195,15 @@ const IndexPage = () => {
                                 </p>
                                 <Row>
                                     <Col md={{ span: 8, offset: 2 }}>
-                                        <ContactForm/>
+                                        <ContactForm />
                                     </Col>
                                 </Row>
                             </TextFrame>
                         </Col>
-                    </Row>
-                </Container>
-            </main>
-            <footer className="text-white-50 bg-dark">
-                <Container>
-                    <Row>
-                        <Col>
-                            <small className="text-end align-items-baseline mt-2 mb-3 d-block">
-                                Copyright Fox Volant &copy; 2022
-                            </small>
-                        </Col>
-                    </Row>
-                </Container>
-            </footer>
-        </div>
+                    </Row>{" "}
+                </>
+            }
+        />
     );
 };
 

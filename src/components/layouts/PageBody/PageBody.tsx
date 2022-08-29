@@ -3,13 +3,11 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-const PageBody = () => {
+const PageBody = (props) => {
     return (
         <main>
             <Container>
-                <Row>
-                    
-                </Row>
+                {props.children}
             </Container>
         </main>
     )
