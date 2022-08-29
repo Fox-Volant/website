@@ -2,11 +2,10 @@ import * as React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import * as styles from "./pageFooter.module.scss";
 
 const PageFooter = (props) => {
     return (
-        <footer className={props.className || "bg-dark"}>
+        <footer className={props.className || "bg-dark text-white-50"}>
             <Container>
                 <Row>
                     {props.children || (

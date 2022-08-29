@@ -200,7 +200,7 @@ const IndexPage = () => {
                                 </Row>
                             </TextFrame>
                         </Col>
-                    </Row>{" "}
+                    </Row>
                 </>
             }
         />
@@ -208,3 +208,5 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export { Head } from "../components/Head/Head"

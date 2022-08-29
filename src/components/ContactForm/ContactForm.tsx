@@ -35,6 +35,7 @@ function ContactForm() {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
+                <div className="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
                 <input type="text" name="_gotcha" className="d-none" />
                 <Button type="submit" disabled={state.submitting}>
                     Submit
