@@ -26,7 +26,7 @@ function ContactForm() {
                 />
             </Form.Group>
             <Form.Group className="mb-3" controlId="contact_message">
-                <Form.Label>Project Details</Form.Label>
+                <Form.Label>Message</Form.Label>
                 <Form.Control name="message" as="textarea" rows={3} />
                 <ValidationError
                     prefix="Message"
@@ -35,6 +35,7 @@ function ContactForm() {
                 />
             </Form.Group>
             <Form.Group className="mb-3">
+                {/* TODO: Recaptcha key for test only - needs replacing for prod */}
                 <div className="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
                 <input type="text" name="_gotcha" className="d-none" />
                 <Button type="submit" disabled={state.submitting}>

@@ -1,7 +1,7 @@
 import React from "react";
 import * as styles from "./TextFrame.module.scss";
 
-export const TextFrame = (props) => {
+const TextFrame = (props) => {
     return (
         <div
             className={`${styles.textframe || ""} ${
@@ -12,3 +12,5 @@ export const TextFrame = (props) => {
         </div>
     );
 };
+
+export default TextFrame;

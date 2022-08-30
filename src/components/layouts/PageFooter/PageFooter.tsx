@@ -10,8 +10,12 @@ const PageFooter = (props) => {
                 <Row>
                     {props.children || (
                         <Col>
+                            <small className="text-end align-items-baseline mt-2 d-block">
+                                &copy; Fox Volant 2022
+                            </small>
                             <small className="text-end align-items-baseline mt-2 mb-3 d-block">
-                                Copyright Fox Volant &copy; 2022
+                                Little Foxes Consulting Ltd trading as Fox
+                                Volant
                             </small>
                         </Col>
                     )}
