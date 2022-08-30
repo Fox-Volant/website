@@ -15,7 +15,6 @@ const IndexPage = () => {
                                 className="me-md-2"
                                 src={"../images/DJI_0795.jpg"}
                                 alt=""
-                                height={300}
                                 objectPosition="0"
                             />
                         }
@@ -44,7 +43,6 @@ const IndexPage = () => {
                                 className="ms-md-2"
                                 src={"../images/DJI_0034.jpg"}
                                 alt=""
-                                height={300}
                                 objectPosition="0"
                             />
                         }
@@ -74,7 +72,6 @@ const IndexPage = () => {
                                 className="me-md-2"
                                 src={"../images/DJI_0793.jpg"}
                                 alt=""
-                                height={300}
                                 objectPosition="0"
                             />
                         }
@@ -102,7 +99,6 @@ const IndexPage = () => {
                                 className="ms-md-2"
                                 src={"../images/DJI_0469.jpg"}
                                 alt=""
-                                height={300}
                                 objectPosition="0"
                             />
                         }
@@ -128,7 +124,6 @@ const IndexPage = () => {
                                 className="me-md-2"
                                 src={"../images/DJI_0293.jpg"}
                                 alt=""
-                                height={300}
                                 objectPosition="0"
                             />
                         }
