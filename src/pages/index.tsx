@@ -1,8 +1,5 @@
 import * as React from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { StaticImage } from "gatsby-plugin-image";
-import TextFrame from "../components/TextFrame/TextFrame";
 import ContactForm from "../components/ContactForm/ContactForm";
 import Layout from "../components/layouts/Layout/Layout";
 import HomeText from "../components/HomeText/HomeText";
@@ -125,27 +122,25 @@ const IndexPage = () => {
                             alternatives.
                         </p>
                     </HomeText>
-
-                    <Row className="mb-2 mb-md-3 mb-xl-5">
-                        <Col>
-                            <TextFrame className="p-3 pe-sm-5 ps-sm-5">
-                                <h2>How can we help you?</h2>
-                                <Row>
-                                    <Col>
-                                        <p>
-                                            If you have a project you would like
-                                            to discuss with us, or just want to
-                                            say hi!, then fill in the form and
-                                            we'll get right back to you.
-                                        </p>
-                                    </Col>
-                                    <Col md={{ span: 8, order: "first" }}>
-                                        <ContactForm />
-                                    </Col>
-                                </Row>
-                            </TextFrame>
-                        </Col>
-                    </Row>
+                    <HomeText
+                        image={
+                            <StaticImage
+                                className="me-md-2"
+                                src={"../images/DJI_0293.jpg"}
+                                alt=""
+                                height={300}
+                                objectPosition="0"
+                            />
+                        }
+                    >
+                        <h2>How can we help you?</h2>
+                        <p>
+                            If you have a project you would like to discuss with
+                            us, or just want to say hi!, then fill in the form
+                            and we'll get right back to you.
+                        </p>
+                        <ContactForm/>
+                    </HomeText>
                 </>
             }
         />

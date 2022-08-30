@@ -14,11 +14,11 @@ function ContactForm() {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="contact_name">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" name="name" as="input" />
+                <Form.Control required type="text" name="name" as="input" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="contact_email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" name="email" as="input" />
+                <Form.Control required type="email" name="email" as="input" />
                 <ValidationError
                     prefix="Email"
                     field="email"
@@ -27,16 +27,16 @@ function ContactForm() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="contact_message">
                 <Form.Label>Message</Form.Label>
-                <Form.Control name="message" as="textarea" rows={3} />
+                <Form.Control required name="message" as="textarea" rows={3} />
                 <ValidationError
                     prefix="Message"
                     field="message"
                     errors={state.errors}
                 />
+                {/* TODO: Recaptcha key for test only - needs replacing for prod */}
+                <div className="g-recaptcha mt-3" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
             </Form.Group>
             <Form.Group className="mb-3">
-                {/* TODO: Recaptcha key for test only - needs replacing for prod */}
-                <div className="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
                 <input type="text" name="_gotcha" className="d-none" />
                 <Button type="submit" disabled={state.submitting}>
                     Submit
