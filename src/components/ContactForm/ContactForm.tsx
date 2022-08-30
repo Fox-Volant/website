@@ -34,7 +34,8 @@ function ContactForm() {
                     errors={state.errors}
                 />
                 {/* TODO: Recaptcha key for test only - needs replacing for prod */}
-                <div className="g-recaptcha mt-3" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                {/* <div className="g-recaptcha mt-3" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div> */}
+                <div className="g-recaptcha mt-3" data-sitekey="6LcOn7khAAAAAA_ae7oZpxAzAqPLUQppJ4_jRr-F"></div>
             </Form.Group>
             <Form.Group className="mb-3">
                 <input type="text" name="_gotcha" className="d-none" />
