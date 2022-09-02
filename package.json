@@ -18,27 +18,27 @@
   "dependencies": {
     "@formspree/react": "^2.3.3",
     "bootstrap": "^5.2.0",
-    "gatsby": "^4.20.0",
+    "gatsby": "^4.22.0",
     "gatsby-background-image": "^1.6.0",
-    "gatsby-plugin-image": "^2.20.0",
-    "gatsby-plugin-manifest": "^4.20.0",
-    "gatsby-plugin-react-helmet": "^5.20.0",
-    "gatsby-plugin-sass": "^5.20.0",
-    "gatsby-plugin-sharp": "^4.20.0",
-    "gatsby-source-filesystem": "^4.20.0",
-    "gatsby-transformer-sharp": "^4.20.0",
+    "gatsby-plugin-google-gtag": "^4.22.0",
+    "gatsby-plugin-image": "^2.22.0",
+    "gatsby-plugin-manifest": "^4.22.0",
+    "gatsby-plugin-sass": "^5.22.0",
+    "gatsby-plugin-sharp": "^4.22.0",
+    "gatsby-source-filesystem": "^4.22.0",
+    "gatsby-transformer-sharp": "^4.22.0",
     "gbimage-bridge": "^0.2.2",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.4.0",
+    "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "sass": "^1.54.1"
+    "sass": "^1.54.8"
   },
   "devDependencies": {
-    "@types/node": "^18.6.3",
-    "@types/react": "^18.0.15",
+    "@types/node": "^18.7.14",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/react-helmet": "^6.1.5",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.2"
   }
 }
