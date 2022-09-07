@@ -44,11 +44,18 @@ const config: GatsbyConfig = {
             __key: "images",
         },
         {
+            resolve: 'gatsby-plugin-html-attributes',
+            options: {
+                lang: 'en'
+            }
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 // You can add multiple tracking ids and a pageview event will be fired for all of them.
                 trackingIds: [
                     "G-GHCKSPGD7G", // Google Analytics / GA
+                    "GTM-KFFZCXF", // Google Tag manager
                 ],
                 // This object is used for configuration specific to this plugin
                 pluginConfig: {
@@ -57,7 +64,7 @@ const config: GatsbyConfig = {
                     // Setting this parameter is also optional
                     respectDNT: true,
                     // Avoids sending pageview hits from custom paths
-                    exclude: ["/preview/**", "/do-not-track/me/too/"],
+                    //exclude: ["/preview/**", "/do-not-track/me/too/"],
                 },
             },
         },
