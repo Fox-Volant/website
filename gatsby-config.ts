@@ -3,7 +3,8 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `Fox Volant`,
-        siteUrl: `https://foxvolant.com`,
+        siteUrl: `https://www.foxvolant.com`,
+        description: `Fox Volant are an East Anglia based team of UAV (Unmanned Aerial Vheicles, i.e; Drones) and photogrammetry specialists. We can capture and composite extensive, accurate photographic imagery of your subjects and render it in any of a number of formats. We specialise in photo-mosaics and 'digital twins'. These are useful in a variety of industries eg. agriculture, archeology, or construction. Please contact us to find out how we can help you.`
     },
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
     // If you use VSCode you can also use the GraphQL plugin
@@ -44,10 +45,10 @@ const config: GatsbyConfig = {
             __key: "images",
         },
         {
-            resolve: 'gatsby-plugin-html-attributes',
+            resolve: "gatsby-plugin-html-attributes",
             options: {
-                lang: 'en'
-            }
+                lang: "en",
+            },
         },
         {
             resolve: `gatsby-plugin-google-gtag`,
@@ -55,7 +56,7 @@ const config: GatsbyConfig = {
                 // You can add multiple tracking ids and a pageview event will be fired for all of them.
                 trackingIds: [
                     "G-GHCKSPGD7G", // Google Analytics / GA
-                    "GTM-KFFZCXF", // Google Tag manager
+                    "GT-M34B6TJ",
                 ],
                 // This object is used for configuration specific to this plugin
                 pluginConfig: {
