@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import ContactForm from "../components/ContactForm/ContactForm";
 import Layout from "../components/layouts/Layout/Layout";
 import HomeText from "../components/HomeText/HomeText";
+import SEO from "../components/SEO/SEO";
 
 const IndexPage = () => {
     return (
@@ -144,4 +145,6 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export { Head } from "../components/Head/Head";
+export const Head = () => (
+    <SEO/>
+);
