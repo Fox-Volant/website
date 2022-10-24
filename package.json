@@ -1,8 +1,8 @@
 {
   "name": "fox-volant",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Company website for Fox Volant UAV Solutions (https://foxvolant.com)",
+  "description": "Company website for Fox Volant UAV Solutions (https://www.foxvolant.com)",
   "author": "Sarah Jane West (admin@littlefoxesconsulting.com)",
   "keywords": [
     "gatsby"
@@ -27,8 +27,10 @@
     "gatsby-plugin-sass": "^5.22.0",
     "gatsby-plugin-sharp": "^4.22.0",
     "gatsby-source-filesystem": "^4.22.0",
+    "gatsby-source-wordpress": "^6.24.0",
     "gatsby-transformer-sharp": "^4.22.0",
     "gbimage-bridge": "^0.2.2",
+    "html-react-parser": "^3.0.4",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",

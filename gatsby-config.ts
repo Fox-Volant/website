@@ -63,6 +63,13 @@ const config: GatsbyConfig = {
             },
         },
         {
+            resolve: "gatsby-source-wordpress",
+            options: {
+                url: "https://wordpress.foxvolant.com/graphql",
+                verbose: true,
+            },
+        },
+        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 // You can add multiple tracking ids and a pageview event will be fired for all of them.
