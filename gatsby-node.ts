@@ -51,9 +51,6 @@ const createIndividualBlogPages = async ({ pages, gatsbyUtilities }) =>
                     // the current page is (when you open it in a browser)
                     id: page.id,
 
-                    // We also use the next and previous id's to query them and add links!
-                    previouspageId: previous ? previous.id : null,
-                    nextpageId: next ? next.id : null,
                 },
             })
         )
