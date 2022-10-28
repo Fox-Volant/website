@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col"
 const PageBody = (props) => {
     return (
         <main>
-            <Container>
+            <Container fluid={props.fluid}>
                 {props.children}
             </Container>
         </main>

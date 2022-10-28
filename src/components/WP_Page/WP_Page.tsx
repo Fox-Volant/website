@@ -1,7 +1,9 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import {graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
+import { Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Layout from "../layouts/Layout/Layout";
 import SEO from "../SEO/SEO";
 
@@ -13,7 +15,7 @@ const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
     };
 
     return (
-        <Layout
+        <Layout fluid={true}
             bodyContent={
                 <>
                     <article
@@ -22,22 +24,27 @@ const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
                         itemType="http://schema.org/Article"
                     >
                         <header>
-                            <h1 itemProp="headline">{parse(page.title)}</h1>
+                            
 
                             {/* if we have a featured image for this page let's display it */}
                             {featuredImage?.data && (
                                 <GatsbyImage
                                     image={featuredImage.data}
                                     alt={featuredImage.alt}
-                                    style={{ marginBottom: 50 }}
+                                    style={{ marginBottom: 50, marginTop: -50, maxHeight: `350px` }}
+                                    className="row"
                                 />
                             )}
+<Row>
+                            <Col lg={{offset: 1, span: 10}}><h1 itemProp="headline">{parse(page.title)}</h1></Col></Row>
                         </header>
 
                         {!!page.content && (
+                            <Col lg={{offset:1, span:10}}>
                             <section itemProp="articleBody">
                                 {parse(page.content)}
                             </section>
+                            </Col>
                         )}
 
                     </article>
