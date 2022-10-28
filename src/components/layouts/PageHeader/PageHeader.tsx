@@ -1,29 +1,33 @@
 import * as React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import Navbar from "react-bootstrap/Navbar";
 import { StaticImage } from "gatsby-plugin-image";
+import NavMenu from "../../NavMenu/NavMenu";
 
 const PageHeader = (props) => {
     return (
-        <header>
-            <Container fluid className="bg-dark mb-5">
-                <Row>
-                    {props.children || (
-                    <Col>
-                        <div className="navbar-brand">
-                            <StaticImage
-                                src="../../../images/Asset 2xxxhdpi.png"
-                                alt="Fox Volant - UAV Solutions"
-                                loading="eager"
-                                placeholder="tracedSVG"
-                                height={100}
-                            />
-                        </div>
-                    </Col>
-                )}
-                </Row>
-            </Container>
+        <header className="sticky-top mb-5">
+            <Navbar expanhd="lg" bg="dark" variant="dark">
+                <Container fluid>
+                        {props.children || (
+                            <>
+                                <Navbar.Brand href="/">
+                                    <StaticImage
+                                        src="../../../images/Asset 2xxxhdpi.png"
+                                        alt="Fox Volant - UAV Solutions"
+                                        loading="eager"
+                                        placeholder="tracedSVG"
+                                        height={100}
+                                    />
+                                </Navbar.Brand>
+                                <Navbar.Toggle aria-controls="header-navbar-nav" />
+                                <Navbar.Collapse id="header-navbar-nav">
+                                    <NavMenu/>
+                                </Navbar.Collapse>
+                            </>
+                        )}
+                </Container>
+            </Navbar>
         </header>
     );
 };
