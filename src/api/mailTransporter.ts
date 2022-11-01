@@ -35,10 +35,10 @@ async function main(body) {
   
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: '"Fox Volant" <contact@foxvolant.com>', // sender address
-      to: "sarahjane@littlefoxesconsulting.com", // list of receivers
-      subject: "Message from Contact Us", // Subject line
-      text: `${JSON.stringify(body)}`, // plain text body
+      from: `"Fox Volant" <${body.email}>`, // sender address
+      to: "contact@foxvolant.com", // list of receivers
+      subject: `Contact Us page message from ${body.name}`, // Subject line
+      text: `${JSON.stringify(body.message)}`, // plain text body
       html: `<b>Name: </b>${body.name}<br/>
       <b>Email: </b>${body.email}<br/>
       <b>Message: </b><p>${JSON.stringify(body.message)}</p>`, // html body
