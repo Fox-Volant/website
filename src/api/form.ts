@@ -1,9 +1,11 @@
-import { GatsbyFunctionRequest, GatsbyFunctionResponse } from "gatsby"
+import { GatsbyFunctionRequest, GatsbyFunctionResponse } from "gatsby";
+import main from "./mailTransporter"
 
 export default function handler(
-  req: GatsbyFunctionRequest,
-  res: GatsbyFunctionResponse
+    req: GatsbyFunctionRequest,
+    res: GatsbyFunctionResponse
 ) {
-  console.log(`submitted form`, req.body)
-  res.json(`ok`)
+    console.log(`submitted form`, req.body);
+    main(req.body);
+    res.json(`ok`);
 }
