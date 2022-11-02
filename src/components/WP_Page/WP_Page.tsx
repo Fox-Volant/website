@@ -6,7 +6,7 @@ import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import Layout from "../layouts/Layout/Layout";
 import SEO from "../SEO/SEO";
-import Contact from "../../pages/contact";
+import ContactForm from "../ContactForm/ContactForm";
 
 const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
     const featuredImage = {
@@ -58,7 +58,7 @@ const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
                                 )}
                                 {template == "Contact Page Template" && (
                                     <section>
-                                        <Contact />
+                                        <ContactForm />
                                     </section>
                                 )}
                             </Col>
