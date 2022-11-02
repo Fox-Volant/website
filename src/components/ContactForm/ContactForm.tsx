@@ -1,10 +1,21 @@
 import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import TextFrame from "../TextFrame/TextFrame";
+import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export default function ContactForm({ formProps }) {
-    const { register, handleSubmit, formState } = { ...formProps };
-    const onSubmit = (data) => {
+type FormData = {
+    name: string;
+    email: string;
+    message: string;
+};
+
+export default function ContactForm() {
+    const { handleSubmit, register, formState } = useForm<FormData>();
+    const { isSubmitSuccessful, isSubmitting } = formState;
+    const onSubmit: SubmitHandler<FormData> = (data) => {
         fetch(`/api/form`, {
             method: `POST`,
             body: JSON.stringify(data),
@@ -13,10 +24,9 @@ export default function ContactForm({ formProps }) {
             },
         });
     };
-    console.dir(formState);
-    return (
+    const showForm = (
         <Form onSubmit={handleSubmit(onSubmit)}>
-            <fieldset disabled={formState.isSubmitting}>
+            <fieldset disabled={isSubmitting}>
                 <Form.Group className="mb-3" controlId="contact_name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
@@ -53,5 +63,22 @@ export default function ContactForm({ formProps }) {
                 </Form.Group>
             </fieldset>
         </Form>
+    );
+    return (
+        <Row className="mb-2 mb-md-3 mb-xl-5">
+            <Col>
+                {isSubmitSuccessful ? (
+                    <TextFrame className="p-5 text-center">
+                        <h2>Thank you!</h2>
+                        <p>
+                            We appreciate your interest! We'll get back to you
+                            as soon as we can!
+                        </p>
+                    </TextFrame>
+                ) : (
+                    <TextFrame className="p-5">{showForm}</TextFrame>
+                )}
+            </Col>
+        </Row>
     );
 }
