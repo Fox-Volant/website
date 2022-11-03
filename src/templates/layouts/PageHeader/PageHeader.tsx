@@ -2,7 +2,7 @@ import * as React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import { StaticImage } from "gatsby-plugin-image";
-import NavMenu from "../../NavMenu/NavMenu";
+import NavMenu from "../../../components/NavMenu/NavMenu";
 
 const PageHeader = (props) => {
     return (
