@@ -13,7 +13,7 @@ const chunk = require(`lodash/chunk`);
  */
 exports.createPages = async (gatsbyUtilities) => {
     // Query our posts from the GraphQL server
-    const pages = await getpages(gatsbyUtilities);
+    const pages = await getPages(gatsbyUtilities);
 
     // If there are no posts in WordPress, don't do anything
     if (!pages.length) {
@@ -21,16 +21,20 @@ exports.createPages = async (gatsbyUtilities) => {
     }
 
     // If there are posts, create pages for them
-    await createIndividualBlogPages({ pages, gatsbyUtilities });
+    await createIndividualPages({ pages, gatsbyUtilities });
 
     // And a paginated archive
-    // await createBlogPagesArchive({ pages, gatsbyUtilities })
+    // await createPageList({ pages, gatsbyUtilities });
 };
 
 /**
  * This function creates all the individual blog pages in this site
  */
-const createIndividualBlogPages = async ({ pages, gatsbyUtilities }) =>
+const createIndividualPages = async ({ pages, gatsbyUtilities }) => {
+    const homePageTemplate = path.resolve(
+        `./src/templates/WP_Page/home-page.tsx`
+    );
+    const wpPageTemplate = path.resolve(`./src/templates/WP_Page/WP_Page.tsx`);
     Promise.all(
         pages.map(({ previous, page, next }) =>
             // createPage is an action passed to createPages
@@ -41,7 +45,7 @@ const createIndividualBlogPages = async ({ pages, gatsbyUtilities }) =>
                 path: page.uri,
 
                 // use the blog post template as the page component
-                component: path.resolve(`./src/components/WP_Page/WP_Page.tsx`),
+                component: page.isFrontPage ? homePageTemplate : wpPageTemplate,
 
                 // `context` is available in the template as a prop and
                 // as a variable in GraphQL.
@@ -50,73 +54,71 @@ const createIndividualBlogPages = async ({ pages, gatsbyUtilities }) =>
                     // so our blog post template knows which blog post
                     // the current page is (when you open it in a browser)
                     id: page.id,
-
                 },
             })
         )
     );
+};
 
 /**
  * This function creates all the individual blog pages in this site
  */
-// async function createBlogPagesArchive({ pages, gatsbyUtilities }) {
-//   const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
-//     {
-//       wp {
-//         readingSettings {
-//           pagesPerPage
-//         }
-//       }
-//     }
-//   `)
+async function createPageList({ pages, gatsbyUtilities }) {
+    // const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
+    //     {
+    //         wp {
+    //             readingSettings {
+    //                 postsPerPage
+    //             }
+    //         }
+    //     }
+    // `);
 
-//   const { pagesPerPage } = graphqlResult.data.wp.readingSettings
+    // const { postsPerPage } = graphqlResult.data.wp.readingSettings;
 
-//   const pagesChunkedIntoArchivePages = chunk(pages, pagesPerPage)
-//   const totalPages = pagesChunkedIntoArchivePages.length
+    // const pagesChunkedIntoArchivePages = chunk(pages, postsPerPage);
+    // const totalPages = pagesChunkedIntoArchivePages.length;
 
-//   return Promise.all(
-//     pagesChunkedIntoArchivePages.map(async (_pages, index) => {
-//       const pageNumber = index + 1
+    return Promise.all(
+        pages.map(async (page) => {
+            // const pageNumber = index + 1;
 
-//       const getPagePath = page => {
-//         if (page > 0 && page <= totalPages) {
-//           // Since our homepage is our blog page
-//           // we want the first page to be "/" and any additional pages
-//           // to be numbered.
-//           // "/blog/2" for example
-//           return page === 1 ? `/` : `/blog/${page}`
-//         }
+            // const getPagePath = (page) => {
+            //     if (page > 0 && page <= totalPages) {
+            //         // Since our homepage is our blog page
+            //         // we want the first page to be "/" and any additional pages
+            //         // to be numbered.
+            //         // "/blog/2" for example
+            //         return page === 1 ? `/` : `/blog/${page}`;
+            //     }
 
-//         return null
-//       }
+            //     return null;
+            // };
 
-//       // createPage is an action passed to createPages
-//       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
-//       await gatsbyUtilities.actions.createPage({
-//         path: getPagePath(pageNumber),
+            // createPage is an action passed to createPages
+            // See https://www.gatsbyjs.com/docs/actions#createPage for more info
+            gatsbyUtilities.actions.createPage({
+                // Use the WordPress uri as the Gatsby page path
+                // This is a good idea so that internal links and menus work 👍
+                path: "/",
 
-//         // use the blog post archive template as the page component
-//         component: path.resolve(`./src/templates/blog-page-archive.js`),
+                // use the blog post template as the page component
+                component: path.resolve(
+                    `./src/templates/WP_Page/home-page.tsx`
+                ),
 
-//         // `context` is available in the template as a prop and
-//         // as a variable in GraphQL.
-//         context: {
-//           // the index of our loop is the offset of which posts we want to display
-//           // so for page 1, 0 * 10 = 0 offset, for page 2, 1 * 10 = 10 posts offset,
-//           // etc
-//           offset: index * pagesPerPage,
-
-//           // We need to tell the template how many posts to display too
-//           pagesPerPage,
-
-//           nextPagePath: getPagePath(pageNumber + 1),
-//           previousPagePath: getPagePath(pageNumber - 1),
-//         },
-//       })
-//     })
-//   )
-// }
+                // `context` is available in the template as a prop and
+                // as a variable in GraphQL.
+                context: {
+                    // we need to add the post id here
+                    // so our blog post template knows which blog post
+                    // the current page is (when you open it in a browser)
+                    id: page.id,
+                },
+            });
+        })
+    );
+}
 
 /**
  * This function queries Gatsby's GraphQL server and asks for
@@ -126,23 +128,26 @@ const createIndividualBlogPages = async ({ pages, gatsbyUtilities }) =>
  * We're passing in the utilities we got from createPages.
  * So see https://www.gatsbyjs.com/docs/node-apis/#createPages for more info!
  */
-async function getpages({ graphql, reporter }) {
+async function getPages({ graphql, reporter }) {
     const graphqlResult = await graphql(/* GraphQL */ `
-        query Wppages {
+        {
             # Query all WordPress blog pages sorted by date
-            allWpPage(sort: { fields: [date], order: DESC }) {
+            WPPages: allWpPage(
+                sort: { fields: menuOrder, order: ASC }
+            ) # filter: { isFrontPage: { eq: false } }
+            {
                 edges {
                     previous {
                         id
                     }
-
                     # note: this is a GraphQL alias. It renames "node" to "page" for this query
                     # We're doing this because this "node" is a page! It makes our code more readable further down the line.
                     page: node {
                         id
                         uri
+                        isFrontPage
+                        menuOrder
                     }
-
                     next {
                         id
                     }
@@ -159,5 +164,5 @@ async function getpages({ graphql, reporter }) {
         return;
     }
 
-    return graphqlResult.data.allWpPage.edges;
+    return graphqlResult.data.WPPages.edges;
 }
