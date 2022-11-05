@@ -1,5 +1,5 @@
 import { GatsbyFunctionRequest, GatsbyFunctionResponse } from "gatsby";
-import main from "./mailTransporter"
+import main from "./mailTransporter";
 
 export default function handler(
     req: GatsbyFunctionRequest,

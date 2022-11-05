@@ -9,23 +9,23 @@ const PageHeader = (props) => {
         <header className="sticky-top mb-5">
             <Navbar expanhd="lg" bg="dark" variant="dark">
                 <Container fluid>
-                        {props.children || (
-                            <>
-                                <Navbar.Brand href="/">
-                                    <StaticImage
-                                        src="../../../images/Asset 2xxxhdpi.png"
-                                        alt="Fox Volant - UAV Solutions"
-                                        loading="eager"
-                                        placeholder="tracedSVG"
-                                        height={100}
-                                    />
-                                </Navbar.Brand>
-                                <Navbar.Toggle aria-controls="header-navbar-nav" />
-                                <Navbar.Collapse id="header-navbar-nav">
-                                    <NavMenu/>
-                                </Navbar.Collapse>
-                            </>
-                        )}
+                    {props.children || (
+                        <>
+                            <Navbar.Brand href="/">
+                                <StaticImage
+                                    src="../../../images/Asset 2xxxhdpi.png"
+                                    alt="Fox Volant - UAV Solutions"
+                                    loading="eager"
+                                    placeholder="tracedSVG"
+                                    height={100}
+                                />
+                            </Navbar.Brand>
+                            <Navbar.Toggle aria-controls="header-navbar-nav" />
+                            <Navbar.Collapse id="header-navbar-nav">
+                                <NavMenu />
+                            </Navbar.Collapse>
+                        </>
+                    )}
                 </Container>
             </Navbar>
         </header>

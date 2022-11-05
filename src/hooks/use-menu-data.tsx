@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 
 export const useMenuData = () => {
     const data = useStaticQuery(graphql`
@@ -16,5 +16,5 @@ export const useMenuData = () => {
             }
         }
     `);
-    return data.wpMenu.menuItems.nodes
+    return data.wpMenu.menuItems.nodes;
 };

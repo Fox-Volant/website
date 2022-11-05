@@ -13,11 +13,9 @@ const HomeText = (props) => {
                             {props.image}
                         </Col>
                         <Col
-                            className={
-                                `p-3 pe-sm-5 ps-sm-5 ${props.first
-                                    ? "pe-md-3"
-                                    : "ps-md-3"
-                                }`}
+                            className={`p-3 pe-sm-5 ps-sm-5 ${
+                                props.first ? "pe-md-3" : "ps-md-3"
+                            }`}
                             md={{
                                 span: 8,
                                 order: props.first ? "first" : undefined,
