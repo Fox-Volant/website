@@ -7,6 +7,7 @@ import { Row } from "react-bootstrap";
 import Layout from "../layouts/Layout/Layout";
 import SEO from "../../components/SEO/SEO";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import "../../styles/wp_styles.scss";
 
 const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
     const featuredImage = {
@@ -24,25 +25,26 @@ const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
                     <article
                         className="wordpress-page"
                         itemScope
-                        itemType="http://schema.org/Article"
-                    >
-                        <header>
+                        itemType="http://schema.org/Article">
+                        <header class="page-header">
                             {/* if we have a featured image for this page let's display it */}
                             {featuredImage?.data && (
                                 <GatsbyImage
                                     image={featuredImage.data}
                                     alt={featuredImage.alt}
                                     style={{
-                                        marginBottom: 50,
-                                        marginTop: -50,
-                                        maxHeight: `350px`,
+                                        marginBottom: 40,
+                                        marginTop: -40,
+                                        maxHeight: `250px`,
                                     }}
-                                    className="row"
+                                    className="row hero-image"
                                 />
                             )}
                             <Row>
                                 <Col lg={{ offset: 1, span: 10 }}>
-                                    <h1 itemProp="headline">
+                                    <h1
+                                        className="page-title"
+                                        itemProp="headline">
                                         {parse(page.title)}
                                     </h1>
                                 </Col>
@@ -51,7 +53,9 @@ const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
 
                         {(!!page.content ||
                             template == "Contact Page Template") && (
-                            <Col lg={{ offset: 1, span: 10 }}>
+                            <Col
+                                lg={{ offset: 1, span: 10 }}
+                                className="wp-block-group">
                                 {!!page.content && (
                                     <section itemProp="articleBody">
                                         {parse(page.content)}
@@ -66,8 +70,7 @@ const WordpressPageTemplate = ({ data: { previous, next, page } }) => {
                         )}
                     </article>
                 </>
-            }
-        ></Layout>
+            }></Layout>
     );
 };
 

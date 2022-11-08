@@ -1,0 +1,40 @@
+@import url("https://wordpress.foxvolant.com/wp-includes/css/dist/block-library/style.min.css");
+@import url("https://wordpress.foxvolant.com/wp-includes/css/dist/block-library/theme.min.css");
+
+.page-header {
+    position: relative;
+    .page-title {
+        position: absolute;
+        box-shadow: #222 2px 2px 4px;
+        outline: #eee solid 1px;
+        border-radius: 5px;
+        background-color: #12121266; /* Fallback color */
+        background-color: rgba(18, 18, 18, 0.4);
+        backdrop-filter: blur(0.25rem);
+        color: var(--bs-light);
+        -webkit-text-stroke: 1.5px #121212;
+        -webkit-text-fill-color: #eee;
+        paint-order: stroke fill;
+        text-shadow: var(--bs-dark) 2px 2px 2px;
+        font-size: 3.5rem;
+        border: 1px solid #222;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        min-width: 40%;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+.site-links {
+    .card {
+        transition: 0.8 ease transform;
+        transform-style: preserve-3d;
+    }
+    .card:hover {
+        transform: translate3d(0, 10px, 10px) rotateX(-5deg);
+        cursor: pointer;
+    }
+}

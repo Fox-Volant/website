@@ -13,8 +13,12 @@ type FormData = {
 };
 
 export default function ContactForm() {
-    const { handleSubmit, register, formState } = useForm<FormData>();
-    const { isSubmitSuccessful, isSubmitting } = formState;
+    const [validated, setValidated] = React.useState(false);
+    const { handleSubmit, register, formState } = useForm<FormData>({
+        mode: "onBlur",
+        reValidateMode: "onSubmit",
+    });
+    const { isSubmitSuccessful, isSubmitting, isValid } = formState;
     const onSubmit: SubmitHandler<FormData> = (data) => {
         fetch(`/api/form`, {
             method: `POST`,
@@ -24,41 +28,72 @@ export default function ContactForm() {
             },
         });
     };
+
+    // const handleSubmit = (event) => {
+    //   const form = event.currentTarget;
+    //   if (form.checkValidity() === false) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //   }
+
+    //   setValidated(true);
+    // };
     const showForm = (
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)} id="contact_form" noValidate>
             <fieldset disabled={isSubmitting}>
-                <Form.Group className="mb-3" controlId="contact_name">
-                    <Form.Label>Name</Form.Label>
+                <Form.Group className="mb-3 required" controlId="contact_name">
+                    <Form.Label>
+                        Name <span className="text-danger">*</span>
+                    </Form.Label>
                     <Form.Control
                         type="text"
                         as="input"
                         {...register("name", {
-                            required: true,
+                            required: "Please provide your name.",
                             maxLength: 100,
                         })}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide your name.
+                    </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="contact_email">
-                    <Form.Label>Email</Form.Label>
+                <Form.Group className="mb-3 required" controlId="contact_email">
+                    <Form.Label>
+                        Email <span className="text-danger">*</span>
+                    </Form.Label>
                     <Form.Control
                         type="email"
                         as="input"
                         {...register("email", {
-                            required: true,
+                            required: "Please provide a contact email address.",
                             maxLength: 100,
                         })}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a contact email address.
+                    </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="contact_message">
-                    <Form.Label>Message</Form.Label>
+                <Form.Group
+                    className="mb-3 required"
+                    controlId="contact_message">
+                    <Form.Label>
+                        Message <span className="text-danger">*</span>
+                    </Form.Label>
                     <Form.Control
                         as="textarea"
                         rows={3}
-                        {...register("message", { required: true })}
+                        {...register("message", {
+                            required: "Please provide a message for us.",
+                        })}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a message for us.
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    {/* <input type="text" name="_gotcha" className="d-none" /> */}
+                    <Form.Text>*All fields are required</Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3">
                     <Button type="submit">Submit</Button>
                 </Form.Group>
             </fieldset>
@@ -68,7 +103,7 @@ export default function ContactForm() {
         <Row className="mb-2 mb-md-3 mb-xl-5">
             <Col>
                 {isSubmitSuccessful ? (
-                    <TextFrame className="p-5 text-center">
+                    <TextFrame className="text-center">
                         <h2>Thank you!</h2>
                         <p>
                             We appreciate your interest! We'll get back to you
@@ -76,7 +111,7 @@ export default function ContactForm() {
                         </p>
                     </TextFrame>
                 ) : (
-                    <TextFrame className="p-5">{showForm}</TextFrame>
+                    <TextFrame>{showForm}</TextFrame>
                 )}
             </Col>
         </Row>

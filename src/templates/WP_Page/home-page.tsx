@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import { Row } from "react-bootstrap";
@@ -7,6 +7,8 @@ import { Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import Layout from "../layouts/Layout/Layout";
 import SEO from "../../components/SEO/SEO";
+import TextFrame from "../../components/TextFrame/TextFrame";
+import "../../styles/wp_styles.scss";
 
 const Index = ({ data }) => {
     const pages = data.WPPages.nodes;
@@ -24,45 +26,28 @@ const Index = ({ data }) => {
             fluid={true}
             bodyContent={
                 <>
-                    <article
-                        className="wordpress-page"
-                        itemScope
-                        itemType="http://schema.org/Article"
-                    >
+                    {featuredImage?.data && (
                         <header>
                             {/* if we have a featured image for this page let's display it */}
-                            {featuredImage?.data && (
-                                <GatsbyImage
-                                    image={featuredImage.data}
-                                    alt={featuredImage.alt}
-                                    style={{
-                                        marginBottom: 50,
-                                        marginTop: -50,
-                                        maxHeight: `350px`,
-                                    }}
-                                    className="row"
-                                />
-                            )}
-                            <Row>
-                                <Col lg={{ offset: 1, span: 10 }}>
-                                    <h1 itemProp="headline">
-                                        {parse(homePage.title)}
-                                    </h1>
-                                </Col>
-                            </Row>
+                            <GatsbyImage
+                                image={featuredImage.data}
+                                alt={featuredImage.alt}
+                                style={{
+                                    marginBottom: 50,
+                                    marginTop: -50,
+                                    maxHeight: `350px`,
+                                }}
+                                className="row"
+                            />
                         </header>
-
-                        {!!homePage.content && (
-                            <Col lg={{ offset: 1, span: 10 }}>
-                                <section itemProp="articleBody">
-                                    {parse(homePage.content)}
-                                </section>
-                            </Col>
-                        )}
-                    </article>
-                    <Row>
+                    )}
+                    <Row className="mt-4">
                         <Col lg={{ offset: 1, span: 10 }}>
-                            <Row className="mb-4" xs={1} sm={2} md={3}>
+                            <Row
+                                className="mb-4 site-links"
+                                xs={1}
+                                sm={2}
+                                md={3}>
                                 {pages
                                     .sort((a, b) => a.menuOrder - b.menuOrder)
                                     .map((page) => {
@@ -77,6 +62,7 @@ const Index = ({ data }) => {
                                                 page.featuredImage?.node?.alt ||
                                                 ``,
                                         };
+                                        // If there's an odd number of cards to display, make the last display full-width on tablet (small) screens
                                         const fullWidthOrphan =
                                             page.menuOrder == pageCount &&
                                             oddPageCount &&
@@ -84,13 +70,14 @@ const Index = ({ data }) => {
 
                                         return (
                                             <Col
-                                                className="mb-2"
-                                                sm={fullWidthOrphan}
-                                            >
+                                                className="mb-2 link-card-container"
+                                                sm={fullWidthOrphan}>
                                                 <Card
                                                     key={page.uri}
-                                                    style={{ height: "100%" }}
-                                                >
+                                                    style={{
+                                                        height: "100%",
+                                                    }}
+                                                    className="shadow">
                                                     {featuredImage?.data && (
                                                         <GatsbyImage
                                                             image={
@@ -113,12 +100,16 @@ const Index = ({ data }) => {
                                                     <Card.Footer>
                                                         <Card.Link
                                                             href={page.uri}
-                                                        >
-                                                            {`Read more about our
-                                                ${parse(
-                                                    title.replace(/s$/, "")
-                                                )}
-                                                service.`}
+                                                            className="stretched-link">
+                                                            Read more
+                                                            <span className="visually-hidden">
+                                                                {`about our ${parse(
+                                                                    title.replace(
+                                                                        /s$/,
+                                                                        "",
+                                                                    ),
+                                                                )} service`}
+                                                            </span>
                                                         </Card.Link>
                                                     </Card.Footer>
                                                 </Card>
@@ -128,9 +119,22 @@ const Index = ({ data }) => {
                             </Row>
                         </Col>
                     </Row>
+                    <article
+                        className="wordpress-page"
+                        itemScope
+                        itemType="http://schema.org/Article">
+                        {!!homePage.content && (
+                            <Col lg={{ offset: 1, span: 10 }}>
+                                <TextFrame className="p-2 mb-3">
+                                    <section itemProp="articleBody">
+                                        {parse(homePage.content)}
+                                    </section>
+                                </TextFrame>
+                            </Col>
+                        )}
+                    </article>
                 </>
-            }
-        ></Layout>
+            }></Layout>
     );
 };
 

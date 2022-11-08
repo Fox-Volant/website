@@ -9,7 +9,9 @@ const NavMenu = () => {
             {menuItems
                 .sort((a, b) => a.order - b.order)
                 .map((menuItem) => (
-                    <Nav.Link href={menuItem.path}>{menuItem.label}</Nav.Link>
+                    <Nav.Link key={menuItem.order} href={menuItem.path}>
+                        {menuItem.label}
+                    </Nav.Link>
                 ))}
         </Nav>
     );

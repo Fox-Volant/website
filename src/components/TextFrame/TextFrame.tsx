@@ -6,8 +6,7 @@ const TextFrame = (props) => {
         <div
             className={`${styles.textframe || ""} ${
                 props.className || ""
-            } bg-white shadow`}
-        >
+            } p-4 bg-white shadow rounded`}>
             {props.children}
         </div>
     );

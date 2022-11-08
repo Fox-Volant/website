@@ -6,7 +6,7 @@ import NavMenu from "../../../components/NavMenu/NavMenu";
 
 const PageHeader = (props) => {
     return (
-        <header className="sticky-top mb-5">
+        <header className="sticky-top">
             <Navbar expanhd="lg" bg="dark" variant="dark">
                 <Container fluid>
                     {props.children || (
