@@ -100,7 +100,7 @@ export default function ContactForm() {
         </Form>
     );
     return (
-        <Row className="mb-2 mb-md-3 mb-xl-5">
+        <Row>
             <Col>
                 {isSubmitSuccessful ? (
                     <TextFrame className="text-center">

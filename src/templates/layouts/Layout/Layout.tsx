@@ -7,7 +7,7 @@ const Layout = ({ headerContent, bodyContent, footerContent, fluid }) => {
     return (
         <>
             <PageHeader>{headerContent}</PageHeader>
-            <PageBody fluid={fluid}>{bodyContent}</PageBody>
+            <PageBody>{bodyContent}</PageBody>
             <PageFooter>{footerContent}</PageFooter>
         </>
     );

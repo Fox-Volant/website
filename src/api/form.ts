@@ -3,7 +3,7 @@ import main from "./mailTransporter";
 
 export default function handler(
     req: GatsbyFunctionRequest,
-    res: GatsbyFunctionResponse
+    res: GatsbyFunctionResponse,
 ) {
     console.log(`submitted form`, req.body);
     main(req.body);
