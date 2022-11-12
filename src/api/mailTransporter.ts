@@ -1,4 +1,7 @@
 import nodemailer from "nodemailer";
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
 
 // let testAccount = await nodemailer.createTestAccount();
 
@@ -18,7 +21,7 @@ let options = {
     secure: true, // true for 465, false for other ports
     auth: {
       user: "contact@foxvolant.com", 
-      pass: "[PASSWORD]", 
+      pass: `${process.env.GATSBY_SMTP_PASS}`, 
     },
   }
 
