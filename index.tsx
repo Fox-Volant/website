@@ -1,9 +1,9 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import ContactForm from "../components/ContactForm/ContactForm";
-import Layout from "../components/layouts/Layout/Layout";
-import HomeText from "../components/HomeText/HomeText";
-import SEO from "../components/SEO/SEO";
+import ContactForm from "./src/components/ContactForm/ContactForm";
+import Layout from "./src/templates/layouts/Layout/Layout";
+import HomeText from "./src/components/HomeText/HomeText";
+import SEO from "./src/components/SEO/SEO";
 
 const IndexPage = () => {
     return (

@@ -3,7 +3,7 @@ import PageBody from "../PageBody/PageBody";
 import PageFooter from "../PageFooter/PageFooter";
 import PageHeader from "../PageHeader/PageHeader";
 
-const Layout = ({ headerContent, bodyContent, footerContent }) => {
+const Layout = ({ headerContent, bodyContent, footerContent, fluid }) => {
     return (
         <>
             <PageHeader>{headerContent}</PageHeader>

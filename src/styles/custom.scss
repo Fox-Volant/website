@@ -1,22 +1,2 @@
 @import "global.scss";
-@import "../../node_modules/bootstrap/scss/bootstrap"; 
-
-// #frontWrapper {
-//     min-height: 100vh;
-//     width: 100%;
-//     position: relative;
-//     background-color: #fff;
-// }
-// #frontWrapper::after {
-//     position: absolute;
-//     top: 0;
-//     left: 0; 
-//     content: '';
-//     height: 100%;
-//     width: 100%;
-//     display: block;
-//     z-index: -1;
-//     background-image: url("../images/pexels-mitchell-luo-4614399.jpg");
-//     background-size: cover;
-//     background-position: center;
-// }
+@import "../../node_modules/bootstrap/scss/bootstrap";
