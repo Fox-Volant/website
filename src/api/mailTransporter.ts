@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-dotenv.config({ path: "/website/.env" });
-
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+});
 // let testAccount = await nodemailer.createTestAccount();
 
 // let options = {
