@@ -20,6 +20,7 @@
         "@formspree/react": "^2.4.1",
         "@wordpress/block-library": "^7.18.0",
         "bootstrap": "^5.2.2",
+        "dotenv": "^16.0.3",
         "gatsby": "^5.0.1",
         "gatsby-background-image": "^1.6.0",
         "gatsby-plugin-google-gtag": "^5.0.0",
