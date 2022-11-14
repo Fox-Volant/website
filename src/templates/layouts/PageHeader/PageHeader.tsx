@@ -7,13 +7,13 @@ import NavMenu from "../../../components/NavMenu/NavMenu";
 const PageHeader = (props) => {
     return (
         <header className="sticky-top">
-            <Navbar expanhd="lg" bg="dark" variant="dark">
+            <Navbar expand="lg" bg="dark" variant="dark">
                 <Container fluid>
                     {props.children || (
                         <>
                             <Navbar.Brand href="/">
                                 <StaticImage
-                                    src="../../../images/Asset 2xxxhdpi.png"
+                                    src="../../../images/header-logo.png"
                                     alt="Fox Volant - UAV Solutions"
                                     loading="eager"
                                     placeholder="tracedSVG"
