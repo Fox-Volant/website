@@ -128,7 +128,7 @@ const Index = ({ data }) => {
                             <article
                                 className="wordpress-page"
                                 itemScope
-                                itemType="http://schema.org/Article">
+                                itemType="https://schema.org/Article">
                                 {!!homePage.content && (
                                     <Col>
                                         <TextFrame className="p-2 mb-3">

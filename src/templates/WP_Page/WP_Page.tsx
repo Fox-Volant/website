@@ -24,7 +24,7 @@ const WordpressPageTemplate = ({ data: { page } }) => {
                     <article
                         className="wordpress-page"
                         itemScope
-                        itemType="http://schema.org/Article">
+                        itemType="https://schema.org/Article">
                         <Container fluid className="">
                             <header class="page-header">
                                 {/* if we have a featured image for this page let's display it */}

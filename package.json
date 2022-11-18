@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@formspree/react": "^2.4.1",
-        "@wordpress/block-library": "^7.18.0",
+        "@wordpress/block-library": "^7.19.0",
         "bootstrap": "^5.2.2",
         "dotenv": "^16.0.3",
         "gatsby": "^5.0.1",
@@ -39,7 +39,7 @@
         "react-bootstrap": "^2.6.0",
         "react-dom": "^18.2.0",
         "react-helmet": "^6.1.0",
-        "react-hook-form": "^7.39.3",
+        "react-hook-form": "^7.39.4",
         "sass": "^1.56.1"
     },
     "devDependencies": {
@@ -47,9 +47,9 @@
         "@types/node": "^18.11.9",
         "@types/nodemailer": "^6.4.6",
         "@types/react": "^18.0.25",
-        "@types/react-dom": "^18.0.8",
+        "@types/react-dom": "^18.0.9",
         "prettier": "^2.7.1",
-        "typescript": "^4.8.4",
+        "typescript": "^4.9.3",
         "typescript-plugin-css-modules": "^3.4.0"
     }
 }
