@@ -29,8 +29,7 @@ export function Hero() {
                     // This centers the other elements inside the hero component
                     placeItems: "center",
                     display: "grid",
-                }}
-            >
+                }}>
                 <StaticImage
                     style={{
                         gridArea: "1/1",

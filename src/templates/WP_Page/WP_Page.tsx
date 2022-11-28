@@ -26,7 +26,7 @@ const WordpressPageTemplate = ({ data: { page } }) => {
                         itemScope
                         itemType="https://schema.org/Article">
                         <Container fluid className="">
-                            <header class="page-header">
+                            <header className="page-header">
                                 {/* if we have a featured image for this page let's display it */}
                                 {featuredImage?.data && (
                                     <GatsbyImage
@@ -79,7 +79,7 @@ const WordpressPageTemplate = ({ data: { page } }) => {
 };
 
 export default WordpressPageTemplate;
-export const Head = () => <SEO />;
+export const Head = () => <SEO title={} />;
 
 export const pageQuery = graphql`
     query WordpressPageById($id: String!) {

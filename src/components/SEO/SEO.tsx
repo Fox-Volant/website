@@ -11,7 +11,7 @@ const SEO = ({ title, description, pathname, children }) => {
     } = useSiteMetadata();
 
     const seo = {
-        title: title || defaultTitle,
+        title: `${defaultTitle} ${title}` || defaultTitle,
         description: description || defaultDescription,
         image: `${siteUrl}${image}`,
         url: `${siteUrl}${pathname || ``}`,
