@@ -20,8 +20,7 @@ const HomeText = (props) => {
                                 span: 8,
                                 order: props.first ? "first" : undefined,
                             }}
-                            xl={{ span: 9 }}
-                        >
+                            xl={{ span: 9 }}>
                             {props.children}
                         </Col>
                     </Row>

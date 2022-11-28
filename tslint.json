@@ -1,11 +1,11 @@
 {
-  "extends": "tslint:latest",
-  "linterOptions": {
-    "exclude": ["node_modules", "public", ".cache"]
-  },
-  "rules": {
-    "no-implicit-dependencies": false,
-    "no-submodule-imports": false,
-    "no-shadowed-variable": false
-  }
+    "extends": "tslint:latest",
+    "linterOptions": {
+        "exclude": ["node_modules", "public", ".cache"]
+    },
+    "rules": {
+        "no-implicit-dependencies": false,
+        "no-submodule-imports": false,
+        "no-shadowed-variable": false
+    }
 }
