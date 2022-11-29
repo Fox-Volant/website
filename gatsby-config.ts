@@ -71,6 +71,15 @@ const config: GatsbyConfig = {
             options: {
                 url: "https://wordpress.foxvolant.com/graphql",
                 verbose: true,
+                // debug: {
+                //     preview: true,
+                //     throwRefetchErrors: true,
+                //     graphql: {
+                //         showQueryVarsOnError: true,
+                //         showQueryOnError: true,
+                //         writeQueriesToDisk: true,
+                //     },
+                // },
             },
         },
         {

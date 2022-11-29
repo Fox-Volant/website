@@ -56,7 +56,8 @@ const Index = ({ data }) => {
                                         .map((page) => {
                                             const title = page.title;
                                             const description =
-                                                page.pageMetaData.description;
+                                                page.pageMetaData
+                                                    ?.description || "";
                                             const featuredImage = {
                                                 data: page.featuredImage?.node
                                                     ?.localFile?.childImageSharp

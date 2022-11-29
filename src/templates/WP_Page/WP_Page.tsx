@@ -79,7 +79,7 @@ const WordpressPageTemplate = ({ data: { page } }) => {
 };
 
 export default WordpressPageTemplate;
-export const Head = () => <SEO title={} />;
+export const Head = () => <SEO />;
 
 export const pageQuery = graphql`
     query WordpressPageById($id: String!) {
