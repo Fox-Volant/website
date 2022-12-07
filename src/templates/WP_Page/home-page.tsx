@@ -170,7 +170,7 @@ export const pageQuery = graphql`
                             childImageSharp {
                                 gatsbyImageData(
                                     quality: 100
-                                    placeholder: TRACED_SVG
+                                    placeholder: BLURRED
                                     layout: FULL_WIDTH
                                 )
                             }
@@ -190,7 +190,7 @@ export const pageQuery = graphql`
                         childImageSharp {
                             gatsbyImageData(
                                 quality: 100
-                                placeholder: TRACED_SVG
+                                placeholder: BLURRED
                                 layout: FULL_WIDTH
                             )
                         }
@@ -201,4 +201,4 @@ export const pageQuery = graphql`
     }
 `;
 
-export const Head = () => <SEO />;
+export const Head = () => <SEO title="UAV Solutions" />;

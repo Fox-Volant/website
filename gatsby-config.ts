@@ -8,11 +8,14 @@ const description =
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: `Fox Volant`,
+        title: `Fox Volant | UAV Solutions`,
         description: `${description}`,
         twitterUsername: `@foxvolant_uav`,
-        image: `~/static/flying-drone-quadcopter-picjumbo-com.jpg`,
-        siteUrl: `https://www.foxvolant.com`,
+        image: `flying-drone-quadcopter-picjumbo-com.jpg`,
+        siteUrl:
+            process.env.NODE_ENV == "development"
+                ? window.location.host
+                : `https://www.foxvolant.com`,
     },
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
     // If you use VSCode you can also use the GraphQL plugin

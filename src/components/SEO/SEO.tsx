@@ -1,19 +1,19 @@
 import React from "react";
 import { useSiteMetadata } from "../../hooks/use-site-metadata";
 
-const SEO = ({ title, description, pathname, children }) => {
+const SEO = ({ title, description, image, pathname, children }) => {
     const {
         title: defaultTitle,
         description: defaultDescription,
-        image,
+        image: defaultImage,
         siteUrl,
         twitterUsername,
     } = useSiteMetadata();
 
     const seo = {
-        title: `${defaultTitle} ${title}` || defaultTitle,
+        title: title ? `Fox Volant | ${title}` : defaultTitle,
         description: description || defaultDescription,
-        image: `${siteUrl}${image}`,
+        image: `${siteUrl}` + (image || defaultImage),
         url: `${siteUrl}${pathname || ``}`,
         twitterUsername,
     };
@@ -26,6 +26,7 @@ const SEO = ({ title, description, pathname, children }) => {
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={seo.title} />
             <meta name="twitter:url" content={seo.url} />
+            <meta name="twitter:site" content="@foxvolant_uav" />
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
             <meta name="twitter:creator" content={seo.twitterUsername} />

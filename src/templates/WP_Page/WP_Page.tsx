@@ -79,7 +79,14 @@ const WordpressPageTemplate = ({ data: { page } }) => {
 };
 
 export default WordpressPageTemplate;
-export const Head = () => <SEO />;
+export const Head = ({ data: { page } }) => (
+    <SEO
+        title={page.title}
+        description={page.pageMetaData?.description}
+        image={page.featuredImage?.node?.localFile?.childImageSharp?.fluid?.src}
+        pathname={page.link}
+    />
+);
 
 export const pageQuery = graphql`
     query WordpressPageById($id: String!) {
@@ -89,17 +96,24 @@ export const pageQuery = graphql`
             content
             title
             date(formatString: "MMMM DD, YYYY")
+            link
             template {
                 templateName
+            }
+            pageMetaData {
+                description
             }
             featuredImage {
                 node {
                     altText
                     localFile {
                         childImageSharp {
+                            fluid {
+                                src
+                            }
                             gatsbyImageData(
                                 quality: 100
-                                placeholder: TRACED_SVG
+                                placeholder: BLURRED
                                 layout: FULL_WIDTH
                             )
                         }
