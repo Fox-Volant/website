@@ -2,7 +2,6 @@ import type { GatsbyConfig } from "gatsby";
 require("dotenv").config({
     path: `.env.${process.env.NODE_ENV}`,
 });
-
 const description =
     "Fox Volant are a team of UAV (Unmanned Aerial Vehicles, i.e; Drones) and photogrammetry specialists, based in East Anglia in the UK. We can capture and composite extensive, accurate photographic imagery and render it in any of a number of formats. We specialise in 2D photo-mosaics and 3D 'digital twins'. These are useful in a variety of industries eg. agriculture, archeology, or construction. Please contact us to find out how we can help you.";
 
@@ -12,10 +11,7 @@ const config: GatsbyConfig = {
         description: `${description}`,
         twitterUsername: `@foxvolant_uav`,
         image: `flying-drone-quadcopter-picjumbo-com.jpg`,
-        siteUrl:
-            process.env.NODE_ENV == "development"
-                ? window.location.host
-                : `https://www.foxvolant.com`,
+        siteUrl: process.env.GATSBY_SITE_URL,
     },
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
     // If you use VSCode you can also use the GraphQL plugin

@@ -16,7 +16,7 @@ const PageHeader = (props) => {
                                     src="../../../images/header-logo.png"
                                     alt="Fox Volant - UAV Solutions"
                                     loading="eager"
-                                    placeholder="tracedSVG"
+                                    placeholder="blurred"
                                     height={100}
                                 />
                             </Navbar.Brand>
