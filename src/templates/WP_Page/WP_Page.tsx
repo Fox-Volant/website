@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import { Col, Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
@@ -11,8 +11,7 @@ import "../../styles/wp_styles.scss";
 
 const WordpressPageTemplate = ({ data: { page } }) => {
     const featuredImage = {
-        data: page.featuredImage?.node?.localFile?.childImageSharp
-            ?.gatsbyImageData,
+        data: getImage(page.featuredImage?.node?.localFile),
         alt: page.featuredImage?.node?.alt || ``,
     };
     const template = page?.template?.templateName;
@@ -83,7 +82,7 @@ export const Head = ({ data: { page } }) => (
     <SEO
         title={page.title}
         description={page.pageMetaData?.description}
-        image={page.featuredImage?.node?.localFile?.childImageSharp?.fluid?.src}
+        image={getSrc(page.featuredImage?.node?.localFile)}
         pathname={page.link}
     />
 );
@@ -105,12 +104,8 @@ export const pageQuery = graphql`
             }
             featuredImage {
                 node {
-                    altText
                     localFile {
                         childImageSharp {
-                            fluid {
-                                src
-                            }
                             gatsbyImageData(
                                 quality: 100
                                 placeholder: BLURRED

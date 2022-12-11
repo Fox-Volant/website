@@ -10,7 +10,7 @@ const config: GatsbyConfig = {
         title: `Fox Volant | UAV Solutions`,
         description: `${description}`,
         twitterUsername: `@foxvolant_uav`,
-        image: `flying-drone-quadcopter-picjumbo-com.jpg`,
+        image: `/flying-drone-quadcopter-picjumbo-com.jpg`,
         siteUrl: process.env.GATSBY_SITE_URL,
     },
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

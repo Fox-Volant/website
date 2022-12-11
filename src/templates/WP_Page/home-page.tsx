@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
@@ -17,8 +17,7 @@ const Index = ({ data }) => {
     const pageCount = pages.length;
     const oddPageCount = !!(pageCount % 2);
     const featuredImage = {
-        data: homePage.featuredImage?.node?.localFile?.childImageSharp
-            ?.gatsbyImageData,
+        data: getImage(homePage.featuredImage?.node?.localFile),
         alt: homePage.featuredImage?.node?.alt || ``,
     };
 
@@ -59,9 +58,10 @@ const Index = ({ data }) => {
                                                 page.pageMetaData
                                                     ?.description || "";
                                             const featuredImage = {
-                                                data: page.featuredImage?.node
-                                                    ?.localFile?.childImageSharp
-                                                    ?.gatsbyImageData,
+                                                data: getImage(
+                                                    page.featuredImage?.node
+                                                        ?.localFile,
+                                                ),
                                                 alt:
                                                     page.featuredImage?.node
                                                         ?.alt || ``,
@@ -74,10 +74,10 @@ const Index = ({ data }) => {
 
                                             return (
                                                 <Col
+                                                    key={page.uri}
                                                     className="mb-2 link-card-container"
                                                     sm={fullWidthOrphan}>
                                                     <Card
-                                                        key={page.uri}
                                                         style={{
                                                             height: "100%",
                                                         }}
