@@ -11,7 +11,7 @@ const config: GatsbyConfig = {
         description: `${description}`,
         twitterUsername: `@foxvolant_uav`,
         image: `/flying-drone-quadcopter-picjumbo-com.jpg`,
-        siteUrl: process.env.GATSBY_SITE_URL,
+        siteUrl: process.env.GATSBY_SITE_URL || `https://www.foxvolant.com`,
     },
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
     // If you use VSCode you can also use the GraphQL plugin
@@ -68,7 +68,9 @@ const config: GatsbyConfig = {
         {
             resolve: "gatsby-source-wordpress",
             options: {
-                url: "https://wordpress.foxvolant.com/graphql",
+                url:
+                    process.env.GATSBY_SITE_URL ||
+                    `https://wordpress.foxvolant.com/graphql`,
                 verbose: true,
                 // debug: {
                 //     preview: true,
